@@ -11,6 +11,6 @@
   },
   "scripts": {
     "dev": "vuepress dev src",
-    "build": "vuepredd build src"
+    "build": "vuepress build src"
   }
 }
