@@ -1,0 +1,16 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "张凯的笔记",
+  "main": "index.js",
+  "repository": "https://git.dev.tencent.com/kaizhang91/notes.git",
+  "author": "Kai Zhang",
+  "private": true,
+  "devDependencies": {
+    "vuepress": "^1.1.0"
+  },
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepredd build src"
+  }
+}
