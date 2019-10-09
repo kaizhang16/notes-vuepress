@@ -61,7 +61,7 @@ nix-env -iA nixpkgs.htop
 nix-env -iA nixpkgs.i3status-rust nixpkgs.imagemagick
 nix-env -iA nixpkgs.jq
 nix-env -iA nixpkgs.ripgrep nixpkgs.ripgrep nixpkgs.rofi
-nix-env -i rustup tmux xclip yarn
+nix-env -i rustup tmux xclip
 
 pip3 install --user tmuxp
 ```

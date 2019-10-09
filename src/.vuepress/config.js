@@ -1,16 +1,31 @@
+const moment = require("moment");
+
 module.exports = {
     title: "张凯的笔记",
     base: "/notes/",
     markdown: {
         extendMarkdown: md => {
             md.use(require("markdown-it-footnote"))
-        }
+        },
+        lineNumbers: true
     },
+    plugins: [
+        [
+            "@vuepress/last-updated",
+            {
+                transformer: (timestamp, lang) => {
+                    return moment(timestamp).format("YYYY-MM-DD HH:mm:ss");
+                }
+            }
+        ]
+    ],
     themeConfig: {
         lastUpdated: "更新于",
         nav: [
             { text: "排版", link: "/typeset/" },
             { text: "操作系统", link: "/os/" },
+            { text: "Shell", link: "/shell/" },
+            { text: "编程语言", link: "/programming-language/" },
             { text: "数据库", link: "/db/" }
         ],
         sidebar: {
@@ -19,6 +34,7 @@ module.exports = {
                     title: "排版",
                     children: [
                         "",
+                        "vuepress"
                     ],
                     collapsable: false
                 }
@@ -32,12 +48,33 @@ module.exports = {
                     collapsable: false
                 }
             ],
+            "/shell/": [
+                {
+                    title: "Shell",
+                    children: [
+                        "",
+                        "bash"
+                    ],
+                    collapsable: false
+                }
+            ],
             "/db/": [
                 {
                     title: "数据库",
                     children: [
                         "",
                         "mybatis"
+                    ],
+                    collapsable: false
+                }
+            ],
+            "/programming-language/": [
+                {
+                    title: "编程语言",
+                    children: [
+                        "",
+                        "java",
+                        "nodejs"
                     ],
                     collapsable: false
                 }
