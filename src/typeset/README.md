@@ -2,6 +2,4 @@
 
 ## 链接
 
-```md
-- 自动链接：<http://google.com>
-```
+- 自动链接：`<http://google.com>`
