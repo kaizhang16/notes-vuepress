@@ -23,6 +23,7 @@ module.exports = {
     themeConfig: {
         lastUpdated: "更新于",
         nav: [
+            { text: "AI", link: "/ai/" },
             { text: "排版", link: "/typeset/" },
             { text: "操作系统", link: "/os/" },
             { text: "工具", link: "/tools/" },
@@ -31,6 +32,15 @@ module.exports = {
             { text: "数据库", link: "/db/" }
         ],
         sidebar: {
+            "/ai/": [
+                {
+                    title: "AI",
+                    children: [
+                        "",
+                    ],
+                    collapsable: false
+                }
+            ],
             "/typeset/": [
                 {
                     title: "排版",
