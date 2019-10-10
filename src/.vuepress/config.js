@@ -53,7 +53,9 @@ module.exports = {
                 {
                     title: "工具",
                     children: [
-                        ""
+                        "",
+                        "cron",
+                        "logrotate"
                     ],
                     collapsable: false
                 }
