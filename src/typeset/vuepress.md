@@ -1,15 +1,38 @@
 # VuePress
 
+## vuepress-plugin-mathjax
+
+```sh
+yarn add vuepress-plugin-mathjax
+```
+
+```js
+// .vuepress/config.js
+module.exports = {
+  plugins: [
+    [
+      'vuepress-plugin-mathjax',
+      {
+        presets: ["\\def\\bm#1{\\boldsymbol#1}"],
+        showError: true
+      },
+    ],
+  ],
+}
+```
+
 ## 语法高亮
 
 - Bash: `sh`
+- Javascript: `js`
 - Makefile: `makefile`
 - Markdown: `md`
 - Rust: `rust`
 
 ## 行号
 
-```md
+```js
+// .vuepress/config.js
 module.exports = {
   markdown: {
     lineNumbers: true
@@ -24,6 +47,7 @@ yarn add moment
 ```
 
 ```js
+// .vuepress/config.js
 const moment = require("moment");
 
 module.exports = {
@@ -47,6 +71,7 @@ yarn add -D @vuepress/plugin-back-to-top@next
 ```
 
 ```js
+// .vuepress/config.js
 module.exports = {
   plugins: [
     "@vuepress/back-to-top"
@@ -60,7 +85,8 @@ module.exports = {
 yarn add markdown-it-xxx
 ```
 
-```md
+```js
+// .vuepress/config.js
 module.exports = {
   markdown: {
     extendMarkdown: md => {

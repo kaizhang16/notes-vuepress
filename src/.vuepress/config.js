@@ -11,6 +11,13 @@ module.exports = {
     },
     plugins: [
         [
+            "vuepress-plugin-mathjax",
+            {
+                presets: ["\\def\\bm#1{\\boldsymbol#1}"],
+                showError: true
+            }
+        ],
+        [
             "@vuepress/last-updated",
             {
                 transformer: (timestamp, lang) => {
