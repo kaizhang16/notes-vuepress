@@ -2,7 +2,7 @@
 
 ## 语法高亮
 
-- Bash: `shell`
+- Bash: `sh`
 - Makefile: `makefile`
 - Markdown: `md`
 - Rust: `rust`

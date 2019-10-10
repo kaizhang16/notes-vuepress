@@ -67,6 +67,7 @@ module.exports = {
                         "",
                         "cron",
                         "fd",
+                        "ffmpeg",
                         "logrotate",
                         "makefile",
                         "rsync"
