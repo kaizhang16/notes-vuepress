@@ -1,5 +1,19 @@
 # Zsh
 
+## Antibody
+
+### 更新插件
+
+```sh
+antibody bundle < ~/.config/antibody/zsh_plugins.txt > ~/.config/antibody/zsh_plugins.sh
+```
+
+### 删除插件
+
+```sh
+antibody purge olivierverdier/zsh-git-prompt
+```
+
 ## $PATH
 
 ```sh
@@ -11,3 +25,16 @@ EOF
 ```
 
 > 参考于 <https://wiki.archlinux.org/index.php/Zsh#Configuring_$PATH>。
+
+## for 循环
+
+```sh
+for i in {0..9}; do echo "$i"; done
+```
+
+## zsh-newuser-install
+
+```sh
+autoload -U zsh-newuser-install
+zsh-newuser-install -f
+```
