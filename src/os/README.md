@@ -53,7 +53,7 @@ sudo apt install ppa-purge python3-pip
 sudo apt install variety xcompmgr xsel
 
 nix-env -iA nixpkgs.bat nixpkgs.curl nixpkgs.dos2unix
-nix-env -i fd feh fish fzf
+nix-env -i feh fish fzf
 nix-env -iA nixpkgs.ghc
 nix-env -iA nixpkgs.gitAndTools.gitFull
 nix-env -iA nixpkgs.gnupg nixpkgs.gopass

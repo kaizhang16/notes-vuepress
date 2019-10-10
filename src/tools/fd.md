@@ -4,6 +4,12 @@
 
 ## 安装
 
+### Nix
+
+```sh
+nix-env -iA nixpkgs.fd
+```
+
 ### Ubuntu 16.04
 
 ```sh
