@@ -26,6 +26,18 @@ sudo mysql -u root -S /var/run/mysqld/mysqld.sock
 CREATE DATABASE `to_create_database` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
+### 创建用户
+
+```sql
+CREATE USER 'a_user'@'some_host' IDENTIFIED BY 'a_password';
+```
+
+### 赋只读权限
+
+```sql
+GRANT SELECT ON `a_database`.* TO 'a_user'@'some_host';
+```
+
 ### 增加列
 
 ```sql
