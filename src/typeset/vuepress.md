@@ -1,5 +1,12 @@
 # VuePress
 
+## 语法高亮
+
+- Bash: `shell`
+- Makefile: `makefile`
+- Markdown: `md`
+- Rust: `rust`
+
 ## 行号
 
 ```md
@@ -29,6 +36,20 @@ module.exports = {
         }
       }
     ]
+  ]
+}
+```
+
+## back-to-top
+
+```sh
+yarn add -D @vuepress/plugin-back-to-top@next
+```
+
+```js
+module.exports = {
+  plugins: [
+    "@vuepress/back-to-top"
   ]
 }
 ```

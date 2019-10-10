@@ -17,7 +17,8 @@ module.exports = {
                     return moment(timestamp).format("YYYY-MM-DD HH:mm:ss");
                 }
             }
-        ]
+        ],
+        "@vuepress/back-to-top"
     ],
     themeConfig: {
         lastUpdated: "更新于",
