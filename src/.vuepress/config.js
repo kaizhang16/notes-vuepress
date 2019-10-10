@@ -24,6 +24,7 @@ module.exports = {
         nav: [
             { text: "排版", link: "/typeset/" },
             { text: "操作系统", link: "/os/" },
+            { text: "工具", link: "/tools/" },
             { text: "Shell", link: "/shell/" },
             { text: "编程语言", link: "/programming-language/" },
             { text: "数据库", link: "/db/" }
@@ -48,12 +49,21 @@ module.exports = {
                     collapsable: false
                 }
             ],
+            "/tools/": [
+                {
+                    title: "工具",
+                    children: [
+                        ""
+                    ],
+                    collapsable: false
+                }
+            ],
             "/shell/": [
                 {
                     title: "Shell",
                     children: [
                         "",
-                        "bash"
+                        "zsh"
                     ],
                     collapsable: false
                 }
