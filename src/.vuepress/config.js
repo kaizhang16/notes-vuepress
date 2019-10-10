@@ -66,8 +66,10 @@ module.exports = {
                     children: [
                         "",
                         "cron",
+                        "fd",
                         "logrotate",
-                        "makefile"
+                        "makefile",
+                        "rsync"
                     ],
                     collapsable: false
                 }
