@@ -70,7 +70,8 @@ module.exports = {
                         "ffmpeg",
                         "logrotate",
                         "makefile",
-                        "rsync"
+                        "rsync",
+                        "视频"
                     ],
                     collapsable: false
                 }
