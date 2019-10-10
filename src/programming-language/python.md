@@ -17,3 +17,11 @@ conda activate py3
 
 # conda activate py2
 ```
+
+## PyTorch
+
+```sh
+conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
+```
+
+> 参考于 <https://pytorch.org/get-started/locally/>。
