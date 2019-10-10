@@ -56,7 +56,8 @@ module.exports = {
                     children: [
                         "",
                         "cron",
-                        "logrotate"
+                        "logrotate",
+                        "makefile"
                     ],
                     collapsable: false
                 }
@@ -71,6 +72,18 @@ module.exports = {
                     collapsable: false
                 }
             ],
+            "/programming-language/": [
+                {
+                    title: "编程语言",
+                    children: [
+                        "",
+                        "python",
+                        "java",
+                        "nodejs"
+                    ],
+                    collapsable: false
+                }
+            ],
             "/db/": [
                 {
                     title: "数据库",
@@ -81,17 +94,6 @@ module.exports = {
                     collapsable: false
                 }
             ],
-            "/programming-language/": [
-                {
-                    title: "编程语言",
-                    children: [
-                        "",
-                        "java",
-                        "nodejs"
-                    ],
-                    collapsable: false
-                }
-            ]
         }
     }
 }
