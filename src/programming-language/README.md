@@ -1,5 +1,24 @@
 # Rust
 
+## rustup
+
+```sh
+rustup default beta
+rustup component add rls
+```
+
+## Cargo
+
+```sh
+cargo new hello_cargo  # 新建项目
+```
+
+## 字符串拼接
+
+```rust
+format!("x={}", x)
+```
+
 ## Enums 和 Pattern Matching
 
 ```rust

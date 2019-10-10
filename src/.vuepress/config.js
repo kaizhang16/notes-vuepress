@@ -55,7 +55,10 @@ module.exports = {
                 {
                     title: "操作系统",
                     children: [
-                        ""
+                        "",
+                        "nix",
+                        "arch-linux",
+                        "ubuntu"
                     ],
                     collapsable: false
                 }
@@ -66,12 +69,21 @@ module.exports = {
                     children: [
                         "",
                         "cron",
+                        "curl",
                         "fd",
                         "ffmpeg",
+                        "git",
+                        "gpg",
                         "logrotate",
                         "makefile",
+                        "mount",
+                        "nginx",
                         "rsync",
-                        "视频"
+                        "ssh",
+                        "vs-code",
+                        "x11",
+                        "视频",
+                        "音频"
                     ],
                     collapsable: false
                 }
@@ -81,7 +93,8 @@ module.exports = {
                     title: "Shell",
                     children: [
                         "",
-                        "zsh"
+                        "zsh",
+                        "fish"
                     ],
                     collapsable: false
                 }
@@ -93,7 +106,9 @@ module.exports = {
                         "",
                         "python",
                         "java",
-                        "nodejs"
+                        "nodejs",
+                        "TeX",
+                        "toml"
                     ],
                     collapsable: false
                 }

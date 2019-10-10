@@ -21,3 +21,35 @@ EOF
 ```
 
 > 参考于 <http://tldp.org/LDP/abs/html/here-docs.html>。
+
+## find
+
+```sh
+find . -type d -empty -delete  # 删除空文件夹
+```
+
+## 变量替换（Parameter Substitution）
+
+- `${#var}`: String length
+- `${var#Pattern}`: 从 `$var` 前面移除最短匹配 `$Pattern` 的部分
+- `${var##Pattern}`: 从 `$var` 前面移除最长匹配 `$Pattern` 的部分
+- `${var%Pattern}`: 从 `$var` 后面移除最短匹配 `$Pattern` 的部分
+- `${var%%Pattern}`: 从 `$var` 后面移除最长匹配 `$Pattern` 的部分
+
+## 条件检查
+
+```sh
+# 命令是否存在
+if command -v xcompmgr; then
+    xcompmgr -c &
+fi
+```
+
+## for 循环
+
+```sh
+for x in "a" "b" "c"
+do
+  echo "${x}"
+done
+```
