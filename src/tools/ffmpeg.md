@@ -20,8 +20,8 @@ sudo apt install ffmpeg
 ffmpeg -i image-%04d.jpg -framerate 30 -c:v libx264 -profile:v high -crf 20 -pix_fmt yuv420p output.mp4
 ```
 
-- `-framerate`: 帧率
 - `-i`: 寻找的图片序列模式
+- `-framerate`: 帧率
 - `-c:v libx264`：the video codec is libx264 (H.264)
 - `-profile:v high`: use H.264 High Profile (advanced features, better quality)
 - `-crf 20`：constant quality mode, very high quality

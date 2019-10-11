@@ -81,6 +81,7 @@ module.exports = {
                         "ffmpeg",
                         "git",
                         "gpg",
+                        "imagemagick",
                         "logrotate",
                         "makefile",
                         "mount",
