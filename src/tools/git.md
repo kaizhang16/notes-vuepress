@@ -3,7 +3,7 @@
 ## 设置默认远端分支
 
 ```sh
-git branch --set-upstream-to origin/master
+git branch --set-upstream-to=origin/master
 ```
 
 ## 撤销某个文件的更改

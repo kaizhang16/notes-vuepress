@@ -1,0 +1,17 @@
+# Imagemagick
+
+## 裁剪
+
+```sh
+#       原图片      宽   高   left top 裁剪后的图片
+convert a.jpg -crop 3024x3024+600+0    a-1.jpg
+```
+
+> 参考于 <http://www.imagemagick.org/Usage/crop/>。
+
+## 旋转
+
+```sh
+# 顺时针旋转 90 度
+convert a.jpg -rotate 90 a-1.jpg
+```

@@ -1,5 +1,14 @@
 # Bash
 
+## 快捷键
+
+- `Ctrl + a`：将光标移动到行首
+- `Ctrl + e`：将光标移动到行尾
+- `Alt + f`: 将光标向前移动一个单词
+- `Alt + b`: 将光标向后移动一个单词
+
+> 参考于 <https://www.tecmint.com/linux-command-line-bash-shortcut-keys/>。
+
 ## IO 重定向
 
 将 `stderr` 和 `stdout` 追加到同一个文件：
