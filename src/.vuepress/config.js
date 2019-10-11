@@ -31,11 +31,10 @@ module.exports = {
         lastUpdated: "更新于",
         nav: [
             { text: "AI", link: "/ai/" },
-            { text: "排版", link: "/typeset/" },
-            { text: "操作系统", link: "/os/" },
+            { text: "编程语言", link: "/programming-language/" },
             { text: "工具", link: "/tools/" },
             { text: "Shell", link: "/shell/" },
-            { text: "编程语言", link: "/programming-language/" },
+            { text: "操作系统", link: "/os/" },
             { text: "数据库", link: "/db/" }
         ],
         sidebar: {
@@ -48,12 +47,12 @@ module.exports = {
                     collapsable: false
                 }
             ],
-            "/typeset/": [
+            "/db/": [
                 {
-                    title: "排版",
+                    title: "数据库",
                     children: [
                         "",
-                        "vuepress"
+                        "mybatis"
                     ],
                     collapsable: false
                 }
@@ -66,6 +65,32 @@ module.exports = {
                         "nix",
                         "arch-linux",
                         "ubuntu"
+                    ],
+                    collapsable: false
+                }
+            ],
+            "/programming-language/": [
+                {
+                    title: "编程语言",
+                    children: [
+                        "",
+                        "rust",
+                        "python",
+                        "java",
+                        "nodejs",
+                        "TeX",
+                        "toml"
+                    ],
+                    collapsable: false
+                }
+            ],
+            "/shell/": [
+                {
+                    title: "Shell",
+                    children: [
+                        "",
+                        "zsh",
+                        "fish"
                     ],
                     collapsable: false
                 }
@@ -85,48 +110,15 @@ module.exports = {
                         "logrotate",
                         "makefile",
                         "mount",
+                        "mybin",
                         "nginx",
                         "rsync",
                         "ssh",
                         "vs-code",
+                        "vuepress",
                         "x11",
                         "视频",
                         "音频"
-                    ],
-                    collapsable: false
-                }
-            ],
-            "/shell/": [
-                {
-                    title: "Shell",
-                    children: [
-                        "",
-                        "zsh",
-                        "fish"
-                    ],
-                    collapsable: false
-                }
-            ],
-            "/programming-language/": [
-                {
-                    title: "编程语言",
-                    children: [
-                        "",
-                        "python",
-                        "java",
-                        "nodejs",
-                        "TeX",
-                        "toml"
-                    ],
-                    collapsable: false
-                }
-            ],
-            "/db/": [
-                {
-                    title: "数据库",
-                    children: [
-                        "",
-                        "mybatis"
                     ],
                     collapsable: false
                 }
