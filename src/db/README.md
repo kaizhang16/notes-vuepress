@@ -67,3 +67,12 @@ ALTER TABLE `to_alter_table` ADD CONSTRAINT `username` UNIQUE INDEX (`username`)
 ```sql
 ALTER TABLE `to_alter_table` DROP INDEX `to_delete_index`;
 ```
+
+## 查询数据库
+
+```sql
+# 返回表里所有记录的行数；
+SELECT COUNT(*) FROM `table_name`;
+```
+
+> 参考于 <http://www.mysqltutorial.org/mysql-count/>。
