@@ -111,6 +111,7 @@ module.exports = {
                         "makefile",
                         "mount",
                         "mybin",
+                        "neovim",
                         "nginx",
                         "rsync",
                         "ssh",
