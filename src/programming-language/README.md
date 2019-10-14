@@ -2,7 +2,7 @@
 
 ## 元信息块
 
-```pandoc
+```md
 % title
 % author(s) (用英文分号分隔)
 % date  # 比如 2019-10-13
@@ -12,13 +12,13 @@
 
 `{-}` 或者 `{.unnumbered}` 表示标题不编号，比如：
 
-```pandoc
+```md
 # My heading {-}
 ```
 
 或者
 
-```pandoc
+```md
 # My heading {.unnumbered}
 ```
 
