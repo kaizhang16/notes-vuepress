@@ -12,6 +12,12 @@ git branch --set-upstream-to=origin/master
 git checkout -- ${filePath}
 ```
 
+## 把某些文件重置到某个 commit
+
+```sh
+git checkout c5f567 -- file1/to/restore file2/to/restore
+```
+
 ## coding.net
 
 - push 到 `mr/master/branch_name` 分支即可自动提交 Merge Request（合并入 master）
