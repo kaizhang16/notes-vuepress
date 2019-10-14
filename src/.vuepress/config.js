@@ -43,6 +43,7 @@ module.exports = {
                     title: "AI",
                     children: [
                         "",
+                        "GPU"
                     ],
                     collapsable: false
                 }
