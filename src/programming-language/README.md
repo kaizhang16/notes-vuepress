@@ -1,5 +1,27 @@
 # Pandoc
 
+## 元信息块
+
+```pandoc
+% title
+% author(s) (用英文分号分隔)
+% date  # 比如 2019-10-13
+```
+
+## 标题
+
+`{-}` 或者 `{.unnumbered}` 表示标题不编号，比如：
+
+```pandoc
+# My heading {-}
+```
+
+或者
+
+```pandoc
+# My heading {.unnumbered}
+```
+
 ## 链接
 
 - 自动链接：`<http://google.com>`

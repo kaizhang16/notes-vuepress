@@ -100,6 +100,7 @@ module.exports = {
                     title: "工具",
                     children: [
                         "",
+                        "calibre",
                         "cron",
                         "curl",
                         "fd",
