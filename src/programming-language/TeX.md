@@ -68,6 +68,7 @@
 | $\cos$     | `\cos`     |
 | $\det$     | `\det`     |
 | $\exp$     | `\exp`     |
+| $\lim$     | `\lim`     |
 | $\log$     | `\log`     |
 | $\max$     | `\max`     |
 | $\sqrt{x}$ | `\sqrt{x}` |
@@ -80,6 +81,8 @@
 | $\forall$                               | 任意                               | `\forall`                       |
 | $\infty$                                | 无穷                               | `\infty`                        |
 | $\left(\frac{x}{y}\right)$              | 定界符                             | `\left(\frac{x}{y}\right)`      |
+| $\lvert$                                | 左竖线                             | `\lvert`                        |
+| $\Vert$                                 | 双竖线                             | `\Vert`                         |
 | $\lVert$                                | 左范数定界符                       | `\lVert`                        |
 | $\rVert$                                | 右范数定界符                       | `\rVert`                        |
 | $P(\textrm{a} \mid \textrm{b})$         | 条件概率                           | `P(\textrm{a} \mid \textrm{b})` |

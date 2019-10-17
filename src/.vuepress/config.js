@@ -22,6 +22,7 @@ module.exports = {
                     "\\R": "\\mathbb{R}",
                     "\\T": "\\mathsf{T}",
                     "\\Var": "\\textrm{Var}",
+                    "\\softmax": "\\textrm{softmax}",
                     "\\x": "\\textrm{x}",
                 },
             }

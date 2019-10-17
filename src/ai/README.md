@@ -109,3 +109,48 @@ $$P(x \mid y) = \frac{P(x)P(y \mid x)}{P(y)}$$
 其中，$P(y) = \sum_x P(y \mid x)P(x)$。
 
 ### 信息论
+
+Self-information：
+
+$$I(x) = -\log P(x)$$
+
+Shannon 熵：
+
+$$H(\x) = {\E}_{\x \sim P}[I(x)] = -{\E}_{x \sim P}[\log P(x)]$$
+
+可以表示为 $H(P)$。
+
+Kullback-Leibler (KL) divergence:
+
+$$D_{KL}(P \Vert Q) = {\E}_{\x \sim P}\left[\log\frac{P(x)}{Q(x)}\right] = {\E}_{\x \sim P}[\log P(x) - \log Q(x)]$$
+
+- KL 散度非负
+- 当且仅当 $P$、$Q$ 几乎处处相等时，KL 散度为 $0$
+
+交叉熵：
+
+$$H(P, Q) = -{\E}_{\x \sim P}\log Q(x)$$
+
+信息论语境里，按照惯例 $\lim_{x \to 0}x\log x = 0$。
+
+## 数值计算
+
+### Overflow and Underflow
+
+- `underflow`: $0$ 附近的数被近似为 $0$
+- `overflow`: 很大的数被近似为 $\infty$ 或者 $-\infty$
+
+softmax:
+
+$$\softmax(\bm{x})_i = \frac{\exp(x_i)}{\sum_{j=1}^n \exp(x_j)}$$
+
+为了让 $\softmax$ 计算稳定，我们计算 $\softmax(\bm{z})$，其中，
+$\bm{z} = \bm{x} - \max_i x_i$。
+
+### Poor Conditioning
+
+对于 $f(\bm{x}) = \bm{A}^{-1}\bm{x}$ 来说，$\bm{A}$ 的 condition number 为：
+
+$$\max_{i, j}\left\lvert\frac{\lambda_i}{\lambda_j}\right\rvert$$
+
+其中，$\bm{A} \in \R^{n\times n}$ 有特征值分解，$\lambda$ 表示特征值。
