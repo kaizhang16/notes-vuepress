@@ -13,8 +13,17 @@ module.exports = {
         [
             "vuepress-plugin-mathjax",
             {
+                showError: true,
                 presets: ["\\def\\bm#1{\\boldsymbol#1}"],
-                showError: true
+                macros: {
+                    "\\E": "\\mathbb{E}",
+                    "\\Laplace": "\\textrm{Laplace}",
+                    "\\N": "\\mathcal{N}",
+                    "\\R": "\\mathbb{R}",
+                    "\\T": "\\mathsf{T}",
+                    "\\Var": "\\textrm{Var}",
+                    "\\x": "\\textrm{x}",
+                },
             }
         ],
         [
