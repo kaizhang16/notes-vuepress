@@ -60,7 +60,7 @@ nix-env -iA nixpkgs.gnupg nixpkgs.gopass
 nix-env -iA nixpkgs.htop
 nix-env -iA nixpkgs.i3status-rust nixpkgs.imagemagick
 nix-env -iA nixpkgs.jq
-nix-env -iA nixpkgs.ripgrep nixpkgs.ripgrep nixpkgs.rofi
+nix-env -iA nixpkgs.rofi
 nix-env -i rustup tmux xclip
 
 pip3 install --user tmuxp
@@ -109,6 +109,13 @@ cp -i ~/share/fonts/方正苏新诗柳楷繁体.ttf ~/.local/share/fonts/
 ```sh
 nix-env -iA nixpkgs.inconsolata
 cp -i ~/.nix-profile/share/fonts/truetype/inconsolata/Inconsolata-* ~/.local/share/fonts
+```
+
+### Source Code Pro
+
+```sh
+nix-env -iA nixpkgs.source-code-pro
+cp -i ~/.nix-profile/share/fonts/opentype/SourceCodePro-* ~/.local/share/fonts/
 ```
 
 ## 终端
