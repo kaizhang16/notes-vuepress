@@ -7,8 +7,8 @@
   "author": "Kai Zhang",
   "private": true,
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
-    "vuepress": "^1.1.0"
+    "@vuepress/plugin-back-to-top": "^1.2.0",
+    "vuepress": "^1.2.0"
   },
   "scripts": {
     "dev": "vuepress dev src",
