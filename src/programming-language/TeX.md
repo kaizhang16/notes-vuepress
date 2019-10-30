@@ -27,6 +27,7 @@
 | $\times$            | 乘                        | `\times`            |
 | $\frac{x}{y}$       | 除                        | `\frac{x}{y}`       |
 | $\odot$             | 矩阵按元素相乘            | `\odot`             |
+| $\approx$           | 近似等于                  | `\approx`           |
 
 : 二元关系符 {#tbl:binaryRelationSymbols}
 
@@ -47,18 +48,20 @@
 
 : 箭头 {#tbl:arrows}
 
-| 字母     | $\TeX$   |
-|----------|----------|
-| $\alpha$ | `\alpha` |
-| $\beta$  | `\beta`  |
-| $\kappa$ | `\kappa` |
-| $\mu$    | `\mu`    |
-| $\phi$   | `\phi`   |
-| $\pi$    | `\pi`    |
-| $\sigma$ | `\sigma` |
-| $\Sigma$ | `\Sigma` |
-| $\theta$ | `\theta` |
-| $\zeta$  | `\zeta`  |
+| 字母      | $\TeX$    |
+|-----------|-----------|
+| $\alpha$  | `\alpha`  |
+| $\beta$   | `\beta`   |
+| $\lambda$ | `\lambda` |
+| $\Lambda$ | `\Lambda` |
+| $\kappa$  | `\kappa`  |
+| $\mu$     | `\mu`     |
+| $\phi$    | `\phi`    |
+| $\pi$     | `\pi`     |
+| $\sigma$  | `\sigma`  |
+| $\Sigma$  | `\Sigma`  |
+| $\theta$  | `\theta`  |
+| $\zeta$   | `\zeta`   |
 
 : 希腊字母 {#tbl:greekLetters}
 

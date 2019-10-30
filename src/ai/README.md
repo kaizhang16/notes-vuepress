@@ -8,6 +8,29 @@ Ian Goodfellow、Yoshua Bengio 和 Aaron Courville 编写。
 
 ## 线性代数
 
+### 特殊矩阵和向量
+
+正交矩阵：
+
+$$ \bm{A}^{\T}\bm{A} = \bm{A}\bm{A}^{\T} = \bm{I}$$
+
+其中，$\bm{A}$ 为方阵。
+
+### 特征分解
+
+矩阵 $\bm{A}$ 的特征分解为：
+
+$$\bm{A} = \bm{V}\diag(\bm{\lambda})\bm{V}^{-1}$$
+
+其中，$\bm{V} = [\bm{v}^{(1)}, \dots, \bm{v}^{(n)}]^{\T}$，$\bm{\lambda} = [\lambda_1, \dots, \lambda_n]^{\T}$。
+
+不是每个矩阵都有特征分解。实对称矩阵有实值特征向量和特征值，
+有特征分解：
+
+$$\bm{A} = \bm{Q}\bm{\Lambda}\bm{Q}^{\T}$$
+
+其中，$\bm{Q}$ 是 $\bm{A}$ 的特征向量组成的正交矩阵。
+
 ### Singular Value Decomposition
 
 - `SVD`: `Singular Value Decomposition`，奇异值分解
@@ -154,3 +177,110 @@ $\bm{z} = \bm{x} - \max_i x_i$。
 $$\max_{i, j}\left\lvert\frac{\lambda_i}{\lambda_j}\right\rvert$$
 
 其中，$\bm{A} \in \R^{n\times n}$ 有特征值分解，$\lambda$ 表示特征值。
+当条件数较大时，矩阵求逆对输入错误很敏感。
+
+### 基于梯度的优化
+
+#### 梯度之外：Jacobian 和 Hessian 矩阵
+
+Jacobian 矩阵:
+
+$$J_{i, j} = \frac{\partial}{\partial x_j}f(\bm{x})_i$$
+
+其中，$\bm{f}: \R^m \to \R^n$，$\bm{J} \in \R^{n\times m}$。
+
+Hessian 矩阵:
+
+$$\bm{H}(f)(\bm{x})_{i, j} = \frac{\partial^2}{\partial x\partial y}f(\bm{x})$$
+
+其中，$f: \R^n \to \R$。
+
+Hessian 矩阵几乎处处（如果二阶导数连续，则二阶导数满足交换律，
+则 Hessian 矩阵对称）是实对称矩阵，所以 Hessian 矩阵几乎处处有本征值分解。
+
+二阶 Taylor 展开：
+
+$$f(\bm{x}) \approx f(\bm{x}^{(0)}) + (\bm{x} - \bm{x}^{(0)})^{\T}\bm{g} +
+  \frac{1}{2}(\bm{x} - \bm{x}^{(0)})^{\T}\bm{H}(\bm{x} - \bm{x}^{(0)})$$
+
+其中，$\bm{g}$ 是 $\bm{x}^{(0)}$ 处的梯度，$\bm{H}$ 是 $\bm{x}^{(0)}$ 处的 Hessian 矩阵。
+设 $\bm{x} = \bm{x}^{(0)} - \epsilon\bm{g}$，则为：
+
+$$f(\bm{x}^{(0)} - \epsilon\bm{g}) \approx
+  f(\bm{x}^{(0)}) - \epsilon\bm{g}^{\T}\bm{g} +
+  \frac{1}{2}\epsilon^2\bm{g}^{\T}\bm{H}\bm{g}$$
+
+### Constrained Optimization
+
+约束为：
+
+$$\bm{x} \in \S$$
+
+Karush-Kuhn-Tucker 假设：
+
+$$\S = \{\bm{x} \mid \forall i, g^{(i)}(\bm{x}) = 0 且 \forall j, h^{(j)}(\bm{x}) \le 0\}$$
+
+Generalized Lagrangian:
+
+$$L(\bm{x}, \bm{\lambda}, \bm{\alpha}) =
+  f(\bm{x}) +
+  \sum_i \lambda_i g^{(i)}(\bm{x}) +
+  \sum_j \alpha_j h^{(j)}(\bm{x})$$
+
+则 $\min_{\bm{x} \in \S}f(\bm{x})$ 等价于：
+
+$$\min_{\bm{x}}\max_{\bm{\lambda}}\max_{\bm{\alpha}, \bm{\alpha} \ge 0}L(\bm{x}, \bm{\lambda}, \bm{\alpha})$$
+
+KKT 条件：
+
+- generalized Lagrangian 的梯度为 $0$
+- $\bm{x}$ 和 KKT 乘子满足约束
+- $\bm{\alpha} \odot \bm{h}(\bm{x}) = \bm{0}$
+
+## 机器学习基础
+
+### 学习算法
+
+#### The Task，T
+
+- 样本：$\bm{x} \in \R^n$，其中 $x_i$ 表示特征
+
+#### 例子：线性回归
+
+回归的目标是根据 $\bm{x} \in \R^{n}$ 预测 $y \in \R$。线性的意思是：
+
+$$\hat{y} = \bm{w}^{\T}\bm{x}$$
+
+其中，$\bm{w} \in \R^n$ 为参数。
+
+均方误差：
+
+$${\MSE}_{\test} = \frac{1}{m}\sum_i\left(\hat{\bm{y}}^{(\test)} - \bm{y}^{(\test)}\right)_i^2$$
+
+或者：
+
+$${\MSE}_{\test} = \frac{1}{m}\lVert\hat{\bm{y}}^{(\test)} - \bm{y}^{(\test)}\rVert^2$$
+
+### Capacity, Overfitting and Underfitting
+
+- i.i.d: 独立（independent）同分布（identically distributed）
+- 欠拟合：训练误差过高
+- 过拟合：训练误差与泛化误差相差太大
+
+#### 正则化
+
+Weight decay:
+
+$$J(\bm{w}) = {\MSE}_{\train} + \lambda\bm{w}^{\T}\bm{w}$$
+
+Regularizer:
+
+$$\Omega(\bm{w}) = \bm{w}^{\T}\bm{w}$$
+
+### Estimators, Bias and Variance
+
+#### Bias
+
+The bias of an estimator:
+
+$$\bias(\hat{\bm{\theta}}_m) = \E(\hat{\bm{\theta}}_m)- \bm{\theta}$$
