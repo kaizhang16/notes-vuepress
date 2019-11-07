@@ -211,32 +211,56 @@ module.exports = {
     title: "张凯的笔记",
     base: "/notes/",
     markdown: {
+        lineNumbers: true,
         extendMarkdown: md => {
             md.use(require("markdown-it-footnote"))
         },
-        lineNumbers: true
     },
     plugins: [
         [
             "vuepress-plugin-mathjax",
             {
                 showError: true,
-                presets: ["\\def\\bm#1{\\boldsymbol#1}"],
+                presets: [
+                    "\\def\\bm#1{\\boldsymbol{#1}}",
+                    "\\newcommand{\\tens}[1]{\\bm{\\mathsf{#1}}}",
+                ],
                 macros: {
                     "\\E": "\\mathbb{E}",
+                    "\\G": "\\mathbb{G}",
+                    "\\KL": "\\textrm{KL}",
                     "\\Laplace": "\\textrm{Laplace}",
+                    "\\ML": "\\textrm{ML}",
+                    "\\MAP": "\\textrm{MAP}",
                     "\\MSE": "\\textrm{MSE}",
                     "\\N": "\\mathcal{N}",
                     "\\R": "\\mathbb{R}",
                     "\\S": "\\mathbb{S}",
                     "\\T": "\\mathsf{T}",
                     "\\Var": "\\textrm{Var}",
+                    "\\X": "\\mathbb{X}",
                     "\\bias": "\\textrm{bias}",
+                    "\\const": "\\textrm{const}",
+                    "\\data": "\\textrm{data}",
                     "\\diag": "\\textrm{diag}",
+                    "\\mH": "\\bm{H}",
+                    "\\mI": "\\bm{I}",
+                    "\\mLambda": "\\bm{\\Lambda}",
+                    "\\mQ": "\\bm{Q}",
+                    "\\mX": "\\bm{X}",
+                    "\\model": "\\textrm{model}",
+                    "\\sign": "\\mathrm{sign}",
                     "\\softmax": "\\textrm{softmax}",
+                    "\\tX": "\\tens{X}",
+                    "\\tanh": "\\textrm{tanh}",
                     "\\test": "\\textrm{test}",
                     "\\train": "\\textrm{train}",
-                    "\\x": "\\textrm{x}",
+                    "\\vh": "\\bm{h}",
+                    "\\vtheta": "\\bm{\\theta}",
+                    "\\vw": "\\bm{w}",
+                    "\\vy": "\\bm{y}",
+                    "\\x": "\\mathrm{x}",
+                    "\\y": "\\mathrm{y}",
                 },
             }
         ],
@@ -321,6 +345,7 @@ module.exports = {
                     collapsable: false
                 }
             ],
-        }
+        },
+        sidebarDepth: 2
     }
 }
