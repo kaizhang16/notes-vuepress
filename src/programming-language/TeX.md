@@ -7,13 +7,15 @@
 | $a$                 | 标量     | `a`                 |
 | $\bm{a}$            | 向量     | `\bm{a}`            |
 | $\bm{A}$            | 矩阵     | `\bm{A}`            |
+| $\bm{\mathsf{A}}$   | 张量     | `\bm{\mathsf{A}}`   |
 | $\bm{A}^\mathsf{T}$ | 矩阵转置 | `\bm{A}^\mathsf{T}` |
-| $\textrm{a}$        | 随机变量 | `\textrm{a}`        |
+| $\mathrm{a}$        | 随机变量 | `\mathrm{a}`        |
 | $\mathbb{A}$        | 集合     | `\mathbb{A}`        |
 | $\mathbb{E}$        | 期望     | `\mathbb{E}`        |
 | $\mathcal{N}$       | 高斯分布 | `\mathcal{N}`       |
 | $\bar{a}$           | 平均值   | `\bar{a}`           |
 | $\hat{p}$           | 经验的   | `\hat{p}`           |
+| $\tilde{J}$         | 修正的   | `\tilde{J}`         |
 
 > `\hat{p}` 参考于 <https://tex.stackexchange.com/questions/77646/how-to-typeset-the-symbol-caret-circumflex-hat>。
 
@@ -45,6 +47,8 @@
 |---------------|----------|---------------|
 | $\Rightarrow$ | 推导出   | `\Rightarrow` |
 | $\to$         | 向右箭头 | `\to`         |
+| $\leftarrow$  | 向左箭头 | `\leftarrow`  |
+| $\searrow$    | 右下箭头 | `\searrow`    |
 
 : 箭头 {#tbl:arrows}
 

@@ -35,6 +35,43 @@ $$\bm{A} = \bm{Q}\bm{\Lambda}\bm{Q}^{\T}$$
 
 - `SVD`: `Singular Value Decomposition`，奇异值分解
 
+$$\bm{A} = \bm{U}\bm{D}\bm{V}^{\T}$$
+
+其中，
+
+- $\bm{A}$
+  - 是 $m\times n$ 矩阵
+  - 所有实矩阵均有奇异值分解
+- $\bm{U}$
+  - 是 $m\times m$ 矩阵
+  - 正交矩阵
+  - $\bm{A}\bm{A}^{\T}$ 的特征向量组成
+- $\bm{D}$
+  - 是 $m\times n$ 矩阵
+  - 对角矩阵
+  - $\bm{A}^{\T}\bm{A}$ 或者 $\bm{A}\bm{A}^{\T}$ 的特征值的平方根
+- $\bm{V}$
+  - 是 $n\times n$ 矩阵
+  - 正交矩阵
+  - $\bm{A}^{\T}\bm{A}$ 的特征向量组成
+
+### 例子：主成分分析
+
+样本点 $\bm{x}^{(i)} \in \R^n$，我们想找到编码点 $\bm{c}^{(i)} \in \R^l$，
+其中 $l < n$。设编码函数为 $f$，解码函数为 $g$，即，
+
+$$f(\bm{x}) = \bm{c}$$
+$$\bm{x} \approx g(f(\bm{x}))$$
+
+假设 $g(\bm{c}) = \bm{D}\bm{c}$，其中 $\bm{D} \in \R^{n\times l}$
+
+那么，
+
+$$f(\bm{x}) = \bm{D}^{\T}\bm{x}$$
+$$r(\bm{x}) = g(f(\bm{x})) = \bm{D}\bm{D}^{\T}\bm{x}$$
+
+$\bm{D}$ 由 $\bm{X}^{\T}\bm{X}$ 的特征向量组成（按特征值大小排序）。
+
 ## Probability and Information Theory
 
 ### Continuous Variables and Probability Density Functions
@@ -279,8 +316,400 @@ $$\Omega(\bm{w}) = \bm{w}^{\T}\bm{w}$$
 
 ### Estimators, Bias and Variance
 
+#### Point Estimation
+
+Point estimator，或者 statistic:
+
+$$\hat{\bm{\theta}}_m = g(\bm{x}^{(1)},\dots,\bm{x}^{(m)})$$
+
 #### Bias
 
 The bias of an estimator:
 
 $$\bias(\hat{\bm{\theta}}_m) = \E(\hat{\bm{\theta}}_m)- \bm{\theta}$$
+
+### 极大似然估计
+
+假设 $\X = {\bm{x}^{(1)}, \dots, \bm{x}^{(m)}}$ 从 $p_{\data}(\bm{x})$
+中独立采样，$p_{\model}(\bm{\x};\bm{\theta})$ 是 $p_{\data}(\bm{x})$ 的估计，
+那么 $\bm{\theta}$ 的极大似然估计为：
+
+$$\bm{\theta}_{\ML} = \arg\max_{\bm{\theta}} p_{\model}(\X;\bm{\theta})$$
+
+等价于：
+
+$$\bm{\theta}_{\ML} = \arg\max_{\bm{\theta}} \sum_{i=1}^m \log p_{\model}(\bm{x}^{(i)};\bm{\theta})$$
+
+等价于：
+
+$$\bm{\theta}_{\ML} = \arg\max_{\bm{\theta}} {\E}_{\bm{\x}\sim\hat{p}_{\data}} \log p_{\model}(\bm{x}^{(i)};\bm{\theta})$$
+
+等价于：
+
+$$\bm{\theta}_{\ML} = \arg\min_{\bm{\theta}} H(\hat{p}_{\data}, p_{\model})$$
+
+等价于：
+
+$$\bm{\theta}_{\ML} = \arg\min_{\bm{\theta}} D_{\KL}(\hat{p}_{\data}\Vert p_{\model})$$
+
+#### Conditional Log-Likelihood and Mean Squared Error
+
+用极大似然进行线性回归时，我们定义：
+
+$$p_{\model}(y \mid \bm{x}) = \N(y; \hat{y}\left(\bm{x}; \bm{w}), \sigma^2\right)$$
+
+### Bayesian Statistics
+
+- 频率学派认为参数 $\bm{\theta}$ 是确定的，但未知；$\hat{\bm{\theta}}$ 是随机变量
+  （因为 $\hat{\bm{\theta}}$ 是数据集的函数，而数据集是随机变量）
+- Bayesian 学派用概率来反映知识的确定度：数据集由观测得到，因此不是随机的；$\bm{\theta}$
+  是未知的，因此是随机变量
+
+Bayesian 线性回归：
+
+先验分布：
+
+$$p(\bm{w}) = \N(\bm{w}\,; \bm{\mu}_0, \bm{\Lambda}_0)$$
+
+后验分布：
+
+$$p(\bm{w}\mid\bm{X},\bm{y}) = \N(\bm{w}\,; \bm{\mu}_m, \bm{\Lambda}_m)$$
+
+其中，$\bm{\Lambda}_m = (\bm{X}^{\T}\bm{X} + \bm{\Lambda_0^{-1}})^{-1}$，
+$\bm{\mu}_m = \bm{\Lambda}_m(\bm{X}^{\T}\bm{y} + \bm{\Lambda}_0^{-1}\bm{\mu}_0)$。
+
+#### Maximum A Posteriori (MAP) Estimation
+
+Maximum a posteriori (MAP):
+
+$$\bm{\theta}_{\MAP} = \arg\max_{\bm{\theta}} p(\bm{\theta}\mid\X)
+                     = \arg\max_{\bm{\theta}} [\log p(\X\mid\bm{\theta}) + \log p(\bm{\theta})]$$
+
+先验分布为 $\N(\bm{w}\,;\bm{0},\frac{1}{\lambda}\bm{I}^2)$ 的 Bayesian 推断对应于 weight decay。
+
+### 监督学习算法
+
+#### Probabilistic Supervised Learning
+
+线性回归:
+
+$$p(y\mid\bm{x};\bm{\theta}) = \N(y;\bm{\theta}^{\T}\bm{x}, \bm{I})$$
+
+Logistic 回归（二分类）：
+
+$$p(y=1\mid\bm{x};\bm{\theta}) = \sigma(\bm{\theta}^{\T}\bm{x})$$
+
+#### 支持向量机
+
+$$\bm{w}^{\T}\bm{x} + b = b + \sum_{i=1}^m\alpha_i\bm{x}^{\T}\bm{x}^{(i)}$$
+
+kernel:
+
+$$k(\bm{x}, \bm{x}^{(i)}) = \phi(\bm{x})\cdot\phi(\bm{x}^{(i)})$$
+
+那么，
+
+$$f(\bm{x}) = b + \sum_i\alpha_i k(\bm{x}, \bm{x}^{(i)})$$
+
+Gaussian kernel:
+
+$$k(\bm{u}, \bm{v}) = \N(\bm{u} - \bm{v}; 0, \sigma^2\bm{I})$$
+
+#### 其他简单监督学习算法
+
+K-nearest neighbors algorithm: 由输入 $\bm{x}$ 预测 $y$ 时，
+先在训练集 $\bm{X}$ 找 $\bm{x}$ $k$ 个最近的邻居；然后返回
+对应 $y$ 值的均值。
+
+### 非监督学习算法
+
+#### 主成分分析
+
+假设 $\bm{z} = \bm{x}^{\T}\bm{W}$，则由
+[例子：主成分分析](#例子：主成分分析) 可知：
+
+$$\bm{X}^{\T}\bm{X} = \bm{W}\bm{\Lambda}\bm{W}^{\T}$$
+
+假设
+
+$$\bm{X} = \bm{U}\bm{\Sigma}\bm{W}_1^{\T}$$
+
+那么
+
+$$\bm{X}^{\T}\bm{X} = \left(\bm{U}\bm{\Sigma}\bm{W}_1^{\T}\right)^{\T} \bm{U}\bm{\Sigma}\bm{W}_1^{\T}
+                    = \bm{W}_1\bm{\Sigma}^2\bm{W}_1^{\T}$$
+
+而特征分解是唯一的（特征值从大到小排列），所以
+
+$$\bm{X} = \bm{U}\bm{\Sigma}\bm{W}^{\T}$$
+
+而
+
+$$\Var[\bm{x}] = \frac{1}{m-1}\bm{X}^{\T}\bm{X}$$
+$$\Var[\bm{z}] = \frac{1}{m-1}\bm{Z}^{\T}\bm{Z}
+               = \frac{1}{m-1}\bm{\Sigma}^2$$
+
+即 PCA 使得 $\Var[\bm{x}]$ 变成了对角阵 $\Var[\bm{z}]$，
+表明 $\bm{z}$ 的各个特征互不相关。
+
+### 随机梯度下降
+
+SGD：Stochastic Gradient Descent。
+
+$$\bm{g} = \frac{1}{m'}\nabla_{\bm{\theta}}\sum_{i=1}^m' L(\bm{x}^{(i)}, y^{(i)}, \bm{\theta})$$
+
+### 构建一个机器学习算法
+
+线性回归的损失函数为：
+
+$$J(\bm{w}, b) = -{\E}_{\x, y\sim \hat{p}_{\data}}\log p_{\model}(y\mid\bm{x})$$
+
+其中 $p_{\model}(y\mid\bm{x}) = \N(y;\bm{x}^{\T}\bm{w}+b,1)$。
+
+### Challenges Motivating Deep Learning
+
+#### Local Constancy and Smoothness Regularization
+
+平滑性：
+
+$$f^*(\bm{x}) \approx f^*(\bm{x} + \epsilon)$$
+
+#### Manifold Learning
+
+A manifold is a connected region.
+
+- 关键假设是 probability mass 高度集中
+
+## Deep Feedforward Networks
+
+Deep feedforward networks，又叫 feedforward neural networks，也叫
+multilayer perceptrons (MLP)。
+
+### 例子：学习 XOR
+
+ReLU (Rectified Linear Unit):
+
+$$g(z) = \max\{0, z\}$$
+
+### 基于梯度的学习
+
+对 feedforward neural networks 来说，把所有权重初始化为小的随机值很重要。
+
+#### Cost Functions
+
+##### 用极大似然学习条件分布
+
+Cost function:
+
+$$J(\bm{\theta}) = -{\E}_{\bm{\x},\bm{\y}\sim\hat{p}_{\data}}\log p_{\model}(\bm{y}\mid\bm{x})$$
+
+如果 $p_{\model}(\bm{y}\mid\bm{x}) = \N(\bm{y}; f(\bm{x};\bm{\theta}),\bm{I})$，那么
+
+$$J(\bm{\theta}) = \frac{1}{2}{\E}_{\bm{\x},\bm{\y}\sim\hat{p}_{\data}}\lVert\bm{y} - f(\bm{x};\bm{\theta})\rVert^2 + \const$$
+
+##### Learning Conditional Statistics
+
+$$f^* = \arg \min_f {\E}_{\bm{\x},\bm{\y}\sim p_{\data}} \lVert\bm{y} - f(\bm{x})\rVert^2$$
+
+推导出
+
+$$f^*(\bm{x}) = {\E}_{\bm{\y}\sim p_{\data}(\bm{y}\mid\bm{x})} [\bm{y}]$$
+
+$$f^* = \arg \min_f {\E}_{\bm{\x},\bm{\y}\sim p_{\data}} \lVert\bm{y} - f(\bm{x})\rVert_1$$
+
+推导出 $f^*(\bm{x})$ 是 $\bm{y}$ 在 $p_{\data}(\bm{y}\mid\bm{x})$ 上的中位数。
+
+#### Output Units
+
+##### Linear Units for Gaussian Output Distributions
+
+Linear output units:
+
+$$\hat{\bm{y}} = \bm{W}^{\T}\bm{h} + \bm{b}$$
+
+##### Sigmoid Units for Bernoulli Output Distributions
+
+Sigmoid output unit:
+
+$$\hat{y} = \sigma(\bm{w}^{\T}\bm{h} + b)$$
+
+假设
+
+$$z  = \bm{w}^{\T}\bm{h} + b$$
+$$P(y) = \sigma((2y - 1)z)$$
+
+##### Softmax Units for Multinoulli Output Distributions
+
+记：
+
+$$\bm{z}  = \bm{W}^{\T}\bm{h} + \bm{b}$$
+$$P(y=i\mid\bm{z}) = \softmax(\bm{z})_i
+                = \frac{\exp(z_i)}{\sum_j\exp(z_j)}$$
+
+数值计算稳定版 softmax:
+
+$$\softmax(\bm{z}) = \softmax(\bm{z} - \max_i z_i)$$
+
+##### Other Output Types
+
+神经网络的输出为函数 $f(\bm{x};\bm{\theta})$，表示的条件概率为
+$p(\bm{y};f(\bm{x};\bm{\theta}))$，即神经网络的输出不直接预测 $\bm{y}$，
+而是控制条件概率分布的参数。
+
+### Hidden Units
+
+Hidden units 先计算仿射变换 $\bm{z} = \bm{W}^{\T}\bm{h} + \bm{b}$，然后
+按元素应用非线性函数 ${g(\bm{z})}$。
+
+#### Rectified Linear Units and Their Generalizations
+
+$$g(z) = \max\{0, z\}$$
+
+推广：
+
+$$h+i = g(\bm{z}, \bm{\alpha})_i
+      = \max(0, z_i) + \alpha_i\min(0, z_i)$$
+
+- Absolute value rectification: $\alpha_i = -1$，即 $g(z) = \lvert z\rvert$
+- Leaky ReLU: $\alpha_i$ 为较小值，比如 $0.01$
+- Parametric RelU（PReLU）：$\alpha_i$ 是可以学习的参数
+
+Maxout units:
+
+$$g(\bm{z})_i = \max_{j\in\G^{(i)}}z_j$$
+
+其中，$\G^{(i)}$ 是输入组 $i$ 的索引集合，$\{(i-1)k+1,\dots,ik\}$。
+
+#### Logistic Sigmoid and Hyperbolic Tangent
+
+Logistic sigmoid Activation function:
+
+$$g(z) = \sigma(z)$
+
+Hyperbolic tangent activation function:
+
+$$g(z) = \tanh(z)
+       = \frac{\exp(z)-\exp(-z)}{\exp(z)+\exp(-z)}$$
+
+#### Other Hidden Units
+
+- Radial basis function (RBF unit): $h_i = \exp\left(-\frac{1}{\sigma_i^2}\lVert\bm{W}_{:,i} - \bm{x}\rVert^2\right)$
+- Softplus: $g(a) = \zeta(a) = \log(1 + e^a)$
+- Hard tanh: $g(a) = \max(-1, \min(1, a))$
+
+### Architecture Design
+
+#### Universal Approximation Properties and Depth
+
+### Back-Propagation and Other Differentiation Algorithms
+
+#### Chain Rule of Calculus
+
+假设 $\bm{x} \in \R^m$，$\bm{y} \in \R^n$，$g: \;\R^m \to \R^n$，$f: \;\R^n \to \R$，
+$\bm{y} = g(\bm{x})$，$z = f(\bm{y})$，那么，
+
+$$\frac{\partial z}{\partial x_i} = \sum_j \frac{\partial z}{\partial y_j}\frac{\partial y_j}{\partial x_i}$$
+
+或者：
+
+$$\nabla_{\bm{x}} z = \left(\frac{\partial\bm{y}}{\partial\bm{x}}\right)^{\T}\nabla_{\bm{y}} z$$
+
+其中，$\frac{\bm{y}}{\bm{x}}$ 是 $n\times m$ 的 Jacobian 矩阵。
+
+对张量而言，
+
+$$\nabla_{\tX} z = \sum_j(\nabla_{\tX}Y_j)\frac{\partial z}{\partial Y_j}$$
+
+## Regularization for Deep Learning
+
+### Parameter Norm Penalties
+
+Regularized objective function:
+
+$$\tilde{J}(\vtheta\,;\mX, \vy) = J(\vtheta\,;\mX, \vy) + \alpha\Omega(\vtheta)$$
+
+其中，$\alpha \in [0, \infty]$ 是超参数。
+
+#### $L^2$ Parameter Regularization
+
+$L^2$ parameter norm penalty 又叫 weight decay。
+
+假设没有 bias parameter，那么，
+
+$$\tilde{J}(\vw\,;\mX, \vy) = \frac{\alpha}{2}\vw^{\T}\vw + J(\vw\,;\mX, \vy)$$
+
+对应的参数梯度为
+
+$$\nabla_{\vw}\tilde{J}(\vw\,;\mX, \vy) = \alpha\vw + \nabla_{\vw}J(\vw\,;\mX, \vy)$$
+
+更新权重步骤：
+
+$$\vw \leftarrow \vw - \epsilon(\alpha\vw + \nabla_{\vw}J(\vw\,;\mX, \vy))$$
+
+即
+
+$$\vw \leftarrow (1 - \epsilon\alpha)\vw - \epsilon\nabla_{\vw}J(\vw\,;\mX, \vy)$$
+
+假设损失函数是二次函数，
+
+$$\hat{J}(\vtheta) = J(\vw^*) + \frac{1}{2}(\vw-\vw^*)^{\T}\mH(\vw-\vw^*)$$
+
+其中，$\mH$ 是 $J$ 关于 $\vw$ 在 $\vw^*$ 的 Hessian 矩阵。
+
+假设 $\tilde{\vw}$ 是 regularized 版的损失函数的最小值的位置，那么
+
+$$\alpha\tilde{\vw} + \mH(\tilde{\vw} - \vw^*) = 0$$
+$$\tilde{\vw} = (\mH + \alpha\mI)^{-1}\mH\vw^*$$
+
+因为 $\mH$ 是实对称矩阵，可以特征分解，假设为 $\mH = \mQ\mLambda\mQ^{\T}$，那么
+
+$$\tilde{\vw} = \mQ(\mLambda + \alpha\mI)^{-1}\mLambda\mQ^{\T}\vw^*$$
+
+可以看到，$\vw^*$ 在 $\mH$ 第 $i$ 个特征向量的方向被缩放了 $\frac{\lambda_i}{\lambda_i + \alpha}$。
+
+#### $L^1$ Regularization
+
+$L^1$ regularization:
+
+$$\Omega(\vtheta) = \lVert\vw\rVert_1 = \sum_i\lvert w_i\rvert$$
+
+损失函数为
+
+$$\tilde{J}(\vw\,;\mX, \vy) = \alpha\lVert\vw\rVert_1 + J(\vw\,;\mX, \vy)$$
+
+梯度为
+
+$$\nabla_{\vw}\tilde{J}(\vw\,;\mX, \vy) = \alpha\sign(\vw) + \nabla_{\vw}J(\vw\,;\mX, \vy)$$
+
+$L^1$ 正则化等价于先验概率为 Laplace 分布的 MAP Bayesian 推断：
+
+$$\log p(\vw) = \sum_i\log\Laplace(w_i;0,\frac{1}{\alpha}) = -\alpha\lVert\vw\rVert_1 + n\log\alpha - n\log 2$$
+
+### Regularization and Under-Constrained Problems
+
+Moore-Penrose 伪逆：
+
+$$\mX^{+} = \lim_{\alpha\searrow 0}(\mX^{\T}\mX + \alpha\mI)^{-1}\mX^{\T}$$
+
+### Sparse Representations
+
+Norm penalty regularization:
+
+$$\tilde{J}(\vtheta\,;\mX, \vy) = J(\vtheta\,;\mX, \vy) + \alpha\Omega(\vh)$$
+
+其中，$\alpha\in [0, \infty]$。
+
+### Bagging and Other Ensemble Methods
+
+Bagging (short for bootstrap aggregating) 是组合多个模型以减小泛化误差的技术。
+
+### Dropout
+
+Dropout:
+
+- 每次加载样本到 minibatch 后，随机采样不同的二值 mask，
+  然后分别应用于网络中所有的输入单元和隐藏单元
+- 每个单元的 mask 独立采样
+- 典型地，输入单元包含进网络的概率为 $0.8$，隐藏单元包含进网络的概率为 $0.5$
+
+## Optimization for Training Deep Models
