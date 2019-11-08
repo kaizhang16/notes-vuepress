@@ -64,6 +64,7 @@
 | $\pi$     | `\pi`     |
 | $\sigma$  | `\sigma`  |
 | $\Sigma$  | `\Sigma`  |
+| $\tau$    | `\tau`    |
 | $\theta$  | `\theta`  |
 | $\zeta$   | `\zeta`   |
 

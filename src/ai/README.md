@@ -713,3 +713,58 @@ Dropout:
 - 典型地，输入单元包含进网络的概率为 $0.8$，隐藏单元包含进网络的概率为 $0.5$
 
 ## Optimization for Training Deep Models
+
+### How Learning Differs from Pure Optimization
+
+损失函数：
+
+$$J(\vtheta) = {\E}_{(\vx,\vy)\sim\hat{p}_{\data}}L(f(\vx;\vtheta), y)$$
+
+理想的损失函数：
+
+$$J^*(\vtheta) = {\E}_{(\vx,\vy)\sim p_{\data}}L(f(\vx;\vtheta), y)$$
+
+#### Empirical Risk Minimization
+
+Empirical risk：
+
+$${\E}_{(\vx,\vy)\sim\hat{p}_{\data}(\vx,y)}[L(f(\vx;\vtheta), y)] = \frac{1}{m}\sum_{i=1}^m L(f(\vx^{(i)};\vtheta),y^{(i)})$$
+
+其中，$m$ 为训练样本的数量。
+
+### Basic Algorithms
+
+#### Stochastic Gradient Descent
+
+SGD: Stochastic Gradient Descent。
+
+SGD 收敛的充分条件是：
+
+$$\sum_{k=1}^{\infty}\epsilon_k = \infty$$
+
+且
+
+$$\sum_{k=1}^{\infty}\epsilon_k^2 < \infty$$
+
+实践中，常常采用线性衰减 learning rate 直到 $\tau$ 次迭代：
+
+$$\epsilon_k = (1 - \alpha)\epsilon_0 + \alpha\epsilon_{\tau}$$
+
+其中，$\alpha = \frac{k}{\tau}$。在 $\tau$ 次迭代之后，常常保留 $\epsilon$ 为常数。
+
+#### Momentum
+
+动量法更新规则：
+
+$$\vv \leftarrow \alpha\vv - \epsilon\nabla_{\vtheta}\left(\frac{1}{m}\sum_{i=1}^m L(\vf(\vx^{(i)};\vtheta),\vy^{(i)})\right)$$
+$$\vtheta \leftarrow \vtheta + \vv$$
+
+其中，$\alpha\in [0, 1)$。如果动量算法观察到的梯度一直是 $\vg$，那么动量会
+沿 $-\vg$ 方向加速，直到
+
+$$\frac{\epsilon\lVert\vg\rVert}{1-\alpha}$$
+
+用牛顿力学类比：
+
+- 粒子位置：$\vtheta(t)$
+- 粒子速度：$\vv(t)$
