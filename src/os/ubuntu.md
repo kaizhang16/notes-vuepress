@@ -30,8 +30,6 @@ sudo snap install --classic code
 
 ```sh
 sudo apt install zsh
-chsh -s /usr/bin/zsh
-nix-env -iA nixpkgs.antiboy
 
 # sudo apt install fish
 # sudo chsh -s /usr/bin/fish
@@ -81,12 +79,6 @@ sudo snap install firefox
 ```
 
 ## 字体
-
-### Fira Code
-
-```sh
-~/.config/fira-code/install.sh
-```
 
 ### 思源字体
 
@@ -201,14 +193,6 @@ sudo apt-get install syncthing
 nix-env -iA nixpkgs.taskwarrior
 
 # sudo apt-get install taskwarrior
-```
-
-### navi
-
-```sh
-git clone --depth 1 https://github.com/denisidoro/navi
-cd navi/
-sudo make install
 ```
 
 ## 编程语言
