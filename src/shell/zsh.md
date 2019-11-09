@@ -1,6 +1,22 @@
 # Zsh
 
+## 设为登录 Shell
+
+```sh
+chsh -s /usr/bin/zsh
+```
+
 ## Antibody
+
+### 安装
+
+```sh
+# Arch Linux
+yay -S antibody
+
+# Ubuntu
+nix-env -iA nixpkgs.antibody
+```
 
 ### 更新插件
 

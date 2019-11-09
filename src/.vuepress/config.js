@@ -144,6 +144,10 @@ const toolsItems = [
         link: "/tools/mybin.html"
     },
     {
+        text: "navi",
+        link: "/tools/navi.html"
+    },
+    {
         text: "Neovim",
         link: "/tools/neovim.html"
     },
@@ -186,6 +190,18 @@ const toolsItems = [
     {
         text: "X11",
         link: "/tools/x11.html"
+    },
+    {
+        text: "z",
+        link: "/tools/z.html"
+    },
+    {
+        text: "字体",
+        link: "/tools/字体.html"
+    },
+    {
+        text: "桌面环境",
+        link: "/tools/桌面环境.html"
     },
     {
         text: "视频",
