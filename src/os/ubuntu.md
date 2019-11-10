@@ -80,15 +80,6 @@ sudo snap install firefox
 
 ## 字体
 
-### 思源字体
-
-```sh
-nix-env -iA nixpkgs.source-han-sans-simplified-chinese  # 黑体
-nix-env -iA nixpkgs.source-han-serif-simplified-chinese  # 宋体
-
-cp -i ~/.nix-profile/share/fonts/opentype/SourceHanS* ~/.local/share/fonts/
-```
-
 ### 苏新诗柳楷
 
 ```sh

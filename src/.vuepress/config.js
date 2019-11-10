@@ -104,6 +104,10 @@ const toolsItems = [
         link: "/tools/curl.html"
     },
     {
+        text: "exa",
+        link: "/tools/exa.html"
+    },
+    {
         text: "fd",
         link: "/tools/fd.html"
     },
@@ -194,6 +198,10 @@ const toolsItems = [
     {
         text: "z",
         link: "/tools/z.html"
+    },
+    {
+        text: "写作",
+        link: "/tools/写作.html"
     },
     {
         text: "字体",
