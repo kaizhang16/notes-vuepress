@@ -128,6 +128,10 @@ const toolsItems = [
         link: "/tools/graphviz.html"
     },
     {
+        text: "hledger",
+        link: "/tools/hledger.html"
+    },
+    {
         text: "Imagemagick",
         link: "/tools/imagemagick.html"
     },
@@ -214,6 +218,10 @@ const toolsItems = [
     {
         text: "视频",
         link: "/tools/视频.html"
+    },
+    {
+        text: "随机字符",
+        link: "/tools/随机字符.html"
     },
     {
         text: "音频",

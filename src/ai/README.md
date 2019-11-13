@@ -768,3 +768,24 @@ $$\frac{\epsilon\lVert\vg\rVert}{1-\alpha}$$
 
 - 粒子位置：$\vtheta(t)$
 - 粒子速度：$\vv(t)$
+- 推力：$-\epsilon\nabla_{\vtheta}J(\vtheta)$
+- 阻力：$(\alpha - 1)\vv$
+
+#### Nesterov 动量
+
+更新规则：
+
+$$\vv \leftarrow \alpha\vv - \epsilon\nabla_{\vtheta}\left[\frac{1}{m}\sum_{i=1}^m L(\vf(\vx^{(i)};\vtheta+\alpha\vv),\vy^{(i)})\right]$$
+$$\vtheta \leftarrow \vtheta + \vv$$
+
+### 参数初始化策略
+
+Normalized initialization（全连接层）:
+
+$$W_{i,j} \sim U\left(-\frac{6}{m+n},\frac{6}{m+n}\right)$$
+
+其中，$m$ 表示输入单元的个数，$n$ 表示输出单元的个数。
+
+## Convolutional Networks
+
+### The Convolution Operation

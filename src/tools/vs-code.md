@@ -12,4 +12,5 @@ ext install iciclesoft.workspacesort
 ext install streetsidesoftware.code-spell-checker
 ext install DavidAnson.vscode-markdownlint
 ext install rust-lang.rust
+ext install James-Yu.latex-workshop
 ```

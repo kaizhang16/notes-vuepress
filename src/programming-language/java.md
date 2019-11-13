@@ -22,3 +22,15 @@ List<String> xs = Arrays.asList("foo", "bar");
 ```java
 CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "my_name")
 ```
+
+## Spring
+
+### sprint-boot
+
+#### actuator
+
+禁用 Mail health check。
+
+```yaml
+management.health.mail.enabled: false
+```
