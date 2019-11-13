@@ -110,9 +110,10 @@ sudo snap install --classic alacritty
 ## apt
 
 ```sh
+sudo apt update  # 更新包信息
+sudo apt upgrade  # 升级软件
 sudo ppa-purge ppa:whatever/ppa  # 删除 ppa
 sudo add-apt-repository --remove ppa:kgilmer/speed-ricer  # 删除 ppa（更粗暴）
-sudo apt upgrade  # 升级软件
 ```
 
 ## docker
