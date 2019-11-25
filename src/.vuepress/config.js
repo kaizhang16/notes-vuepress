@@ -68,6 +68,12 @@ const programmingLanguageItems = [
         link: "/programming-language/toml.html"
     },
 ];
+const serverItems = [
+    {
+        text: "Nginx",
+        link: "/server/index.html"
+    }
+];
 const shellItems = [
     {
         text: "Bash",
@@ -242,6 +248,91 @@ const navItemToSidebarChild = navItem => {
 module.exports = {
     title: "张凯的笔记",
     base: "/notes/",
+    themeConfig: {
+        lastUpdated: "更新于",
+        nav: [
+            {
+                text: "AI",
+                items: aiItems
+            },
+            {
+                text: "编程语言",
+                items: programmingLanguageItems
+            },
+            {
+                text: "工具",
+                items: toolsItems
+            },
+            {
+                text: "Shell",
+                items: shellItems
+            },
+            {
+                text: "操作系统",
+                items: osItems
+            },
+            {
+                text: "数据库",
+                items: dbItems
+            },
+            {
+                text: "服务器",
+                items: serverItems
+            }
+        ],
+        sidebar: {
+            "/ai/": [
+                {
+                    title: "AI",
+                    children: aiItems.map(navItemToSidebarChild),
+                    collapsable: false
+                }
+            ],
+            "/db/": [
+                {
+                    title: "数据库",
+                    children: dbItems.map(navItemToSidebarChild),
+                    collapsable: false
+                }
+            ],
+            "/os/": [
+                {
+                    title: "操作系统",
+                    children: osItems.map(navItemToSidebarChild),
+                    collapsable: false
+                }
+            ],
+            "/programming-language/": [
+                {
+                    title: "编程语言",
+                    children: programmingLanguageItems.map(navItemToSidebarChild),
+                    collapsable: false
+                }
+            ],
+            "/shell/": [
+                {
+                    title: "Shell",
+                    children: shellItems.map(navItemToSidebarChild),
+                    collapsable: false
+                }
+            ],
+            "/tools/": [
+                {
+                    title: "工具",
+                    children: toolsItems.map(navItemToSidebarChild),
+                    collapsable: false
+                }
+            ],
+            "/server/": [
+                {
+                    title: "服务器",
+                    children: serverItems.map(navItemToSidebarChild),
+                    collapsable: false
+                }
+            ],
+        },
+        sidebarDepth: 2
+    },
     markdown: {
         lineNumbers: true,
         extendMarkdown: md => {
@@ -309,79 +400,5 @@ module.exports = {
             }
         ],
         "@vuepress/back-to-top"
-    ],
-    themeConfig: {
-        lastUpdated: "更新于",
-        nav: [
-            {
-                text: "AI",
-                items: aiItems
-            },
-            {
-                text: "编程语言",
-                items: programmingLanguageItems
-            },
-            {
-                text: "工具",
-                items: toolsItems
-            },
-            {
-                text: "Shell",
-                items: shellItems
-            },
-            {
-                text: "操作系统",
-                items: osItems
-            },
-            {
-                text: "数据库",
-                items: dbItems
-            }
-        ],
-        sidebar: {
-            "/ai/": [
-                {
-                    title: "AI",
-                    children: aiItems.map(navItemToSidebarChild),
-                    collapsable: false
-                }
-            ],
-            "/db/": [
-                {
-                    title: "数据库",
-                    children: dbItems.map(navItemToSidebarChild),
-                    collapsable: false
-                }
-            ],
-            "/os/": [
-                {
-                    title: "操作系统",
-                    children: osItems.map(navItemToSidebarChild),
-                    collapsable: false
-                }
-            ],
-            "/programming-language/": [
-                {
-                    title: "编程语言",
-                    children: programmingLanguageItems.map(navItemToSidebarChild),
-                    collapsable: false
-                }
-            ],
-            "/shell/": [
-                {
-                    title: "Shell",
-                    children: shellItems.map(navItemToSidebarChild),
-                    collapsable: false
-                }
-            ],
-            "/tools/": [
-                {
-                    title: "工具",
-                    children: toolsItems.map(navItemToSidebarChild),
-                    collapsable: false
-                }
-            ],
-        },
-        sidebarDepth: 2
-    }
+    ]
 }
