@@ -110,6 +110,10 @@ const toolsItems = [
         link: "/tools/curl.html"
     },
     {
+        text: "delta",
+        link: "/tools/delta.html"
+    },
+    {
         text: "exa",
         link: "/tools/exa.html"
     },
