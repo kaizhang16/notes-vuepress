@@ -29,7 +29,7 @@ location / {
 ```nginx
 map $http_user_agent $root_dir {
     default "/var/www/html/a/";
-    ~*(mobile|nokia|iphone|ipad|android|samsung|htc|blackberry) "/var/www/html/b/";
+    ~*(mobile|iphone|ipad|android) "/var/www/html/b/";
 }
 ```
 
