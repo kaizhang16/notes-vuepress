@@ -43,12 +43,16 @@
 
 > 参考于 <https://www.overleaf.com/learn/latex/Integrals,_sums_and_limits>。
 
-| 数学符号      | 含义     | $\TeX$        |
-|---------------|----------|---------------|
-| $\Rightarrow$ | 推导出   | `\Rightarrow` |
-| $\to$         | 向右箭头 | `\to`         |
-| $\leftarrow$  | 向左箭头 | `\leftarrow`  |
-| $\searrow$    | 右下箭头 | `\searrow`    |
+| 数学符号      | 含义       | $\TeX$        |
+|---------------|------------|---------------|
+| $\Rightarrow$ | 推导出     | `\Rightarrow` |
+| $\to$         | 向右箭头   | `\to`         |
+| $\leftarrow$  | 向左箭头   | `\leftarrow`  |
+| $\mapsto$     | 映射元素到 | `\mapsto`     |
+| $\searrow$    | 右下箭头   | `\searrow`    |
+
+> $\mapsto$ 的含义参考于
+> <https://en.wikipedia.org/wiki/Function_%28mathematics%29#Notation>。
 
 : 箭头 {#tbl:arrows}
 

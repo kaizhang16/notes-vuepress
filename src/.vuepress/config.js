@@ -6,6 +6,10 @@ const aiItems = [
         link: "/ai/index.html",
     },
     {
+        text: "Linear Algebra",
+        link: "/ai/linear-algebra.html"
+    },
+    {
         text: "GPU",
         link: "/ai/GPU.html",
     },
@@ -370,11 +374,14 @@ module.exports = {
                     "\\const": "\\textrm{const}",
                     "\\data": "\\textrm{data}",
                     "\\diag": "\\textrm{diag}",
+                    "\\mA": "\\bm{A}",
                     "\\mH": "\\bm{H}",
                     "\\mI": "\\bm{I}",
                     "\\mLambda": "\\bm{\\Lambda}",
+                    "\\mM": "\\bm{M}",
                     "\\mQ": "\\bm{Q}",
                     "\\mX": "\\bm{X}",
+                    "\\mY": "\\bm{Y}",
                     "\\model": "\\textrm{model}",
                     "\\sign": "\\mathrm{sign}",
                     "\\softmax": "\\textrm{softmax}",
@@ -382,6 +389,7 @@ module.exports = {
                     "\\tanh": "\\textrm{tanh}",
                     "\\test": "\\textrm{test}",
                     "\\train": "\\textrm{train}",
+                    "\\vb": "\\bm{b}",
                     "\\vf": "\\bm{f}",
                     "\\vg": "\\bm{g}",
                     "\\vh": "\\bm{h}",
