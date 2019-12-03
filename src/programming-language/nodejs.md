@@ -19,3 +19,9 @@ sudo snap install node --channel=12/stable --classic
 ```sh
 nix-env -iA nixpkgs.yarn
 ```
+
+### 全局安装 Node 包
+
+```sh
+yarn global add @vue/cli
+```
