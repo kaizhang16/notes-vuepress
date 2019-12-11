@@ -47,12 +47,31 @@ find . -type d -empty -delete  # 删除空文件夹
 
 ## 条件检查
 
+### 命令是否存在
+
 ```sh
-# 命令是否存在
 if command -v xcompmgr; then
     xcompmgr -c &
 fi
 ```
+
+### 进程是否存在
+
+```sh
+if pgrep -x "gedit" > /dev/null
+then
+    echo "Running"
+else
+    echo "Stopped"
+fi
+
+if ! pgrep -x "gedit" > /dev/null
+then
+    echo "Stopped"
+fi
+```
+
+> 参考于 <https://askubuntu.com/questions/157779/how-to-determine-whether-a-process-is-running-or-not-and-make-use-it-to-make-a-c>。
 
 ## for 循环
 
