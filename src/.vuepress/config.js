@@ -98,8 +98,8 @@ const toolsItems = [
         link: "/tools/index.html"
     },
     {
-        text: "Adobe Premiere",
-        link: "/tools/adobe-premiere.html"
+        text: "Adobe",
+        link: "/tools/adobe.html"
     },
     {
         text: "Calibre",
