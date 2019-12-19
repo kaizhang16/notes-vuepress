@@ -1,6 +1,7 @@
 # 笔记列表
 
 - [AI](./ai/)
+- [CV](./cv/)
 - [编程语言](./programming-language/)
 - [工具](./tools/)
 - [Shell](./shell/)

@@ -15,4 +15,5 @@ ext install DavidAnson.vscode-markdownlint
 ext install rust-lang.rust
 ext install stkb.rewrap
 ext install James-Yu.latex-workshop
+ext install esbenp.prettier-vscode
 ```
