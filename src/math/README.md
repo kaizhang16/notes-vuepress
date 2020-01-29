@@ -1,4 +1,4 @@
-# Linear Algebra
+# 线性代数
 
 ## Affine Transformation
 
@@ -23,3 +23,7 @@ $$\vx \mapsto \mM\vx + \vb$$
 $$\lVert\mA\rVert_F = \sqrt{\sum_{i=1}^m\sum_{j=1}^n\lvert a_{ij}\rvert^2}$$
 
 > 参考于 <https://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm>。
+
+## 主成分分析
+
+Principal component analysis (PCA).

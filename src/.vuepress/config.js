@@ -6,10 +6,6 @@ const aiItems = [
     link: "/ai/index.html"
   },
   {
-    text: "Linear Algebra",
-    link: "/ai/linear-algebra.html"
-  },
-  {
     text: "GPU",
     link: "/ai/GPU.html"
   }
@@ -33,6 +29,20 @@ const dbItems = [
   }
 ];
 
+const languagesItems = [
+  {
+    text: "英语",
+    link: "/languages/英语.html"
+  }
+];
+
+const mathItems = [
+  {
+    text: "线性代数",
+    link: "/math/index.html"
+  }
+];
+
 const osItems = [
   {
     text: "Linux",
@@ -41,6 +51,10 @@ const osItems = [
   {
     text: "Nix",
     link: "/os/nix.html"
+  },
+  {
+    text: "Gentoo",
+    link: "/os/gentoo.html"
   },
   {
     text: "Arch Linux",
@@ -52,34 +66,38 @@ const osItems = [
   }
 ];
 
-const programmingLanguageItems = [
+const programmingLanguagesItems = [
   {
     text: "Pandoc",
-    link: "/programming-language/index.html"
+    link: "/programming-languages/index.html"
   },
   {
     text: "Rust",
-    link: "/programming-language/rust.html"
+    link: "/programming-languages/rust.html"
   },
   {
     text: "Python",
-    link: "/programming-language/python.html"
+    link: "/programming-languages/python.html"
+  },
+  {
+    text: "c++",
+    link: "/programming-languages/c++.html"
   },
   {
     text: "Java",
-    link: "/programming-language/java.html"
+    link: "/programming-languages/java.html"
   },
   {
     text: "Node.js",
-    link: "/programming-language/nodejs.html"
+    link: "/programming-languages/nodejs.html"
   },
   {
     text: "TeX",
-    link: "/programming-language/TeX.html"
+    link: "/programming-languages/TeX.html"
   },
   {
     text: "TOML",
-    link: "/programming-language/toml.html"
+    link: "/programming-languages/toml.html"
   }
 ];
 
@@ -147,10 +165,6 @@ const toolsItems = [
     link: "/tools/git.html"
   },
   {
-    text: "GPG",
-    link: "/tools/gpg.html"
-  },
-  {
     text: "Graphviz",
     link: "/tools/graphviz.html"
   },
@@ -165,10 +179,6 @@ const toolsItems = [
   {
     text: "Makefile",
     link: "/tools/makefile.html"
-  },
-  {
-    text: "mount/umount",
-    link: "/tools/mount.html"
   },
   {
     text: "mybin",
@@ -195,10 +205,6 @@ const toolsItems = [
     link: "/tools/ripgrep.html"
   },
   {
-    text: "Rsync",
-    link: "/tools/rsync.html"
-  },
-  {
     text: "Sed",
     link: "/tools/sed.html"
   },
@@ -211,36 +217,40 @@ const toolsItems = [
     link: "/tools/ssh.html"
   },
   {
-    text: "VS Code",
-    link: "/tools/vs-code.html"
-  },
-  {
     text: "VuePress",
     link: "/tools/vuepress.html"
-  },
-  {
-    text: "X11",
-    link: "/tools/x11.html"
   },
   {
     text: "z",
     link: "/tools/z.html"
   },
   {
-    text: "写作",
-    link: "/tools/写作.html"
+    text: "版本",
+    link: "/tools/版本.html"
   },
   {
-    text: "图像",
-    link: "/tools/图像.html"
+    text: "办公",
+    link: "/tools/办公.html"
   },
   {
-    text: "字体",
-    link: "/tools/字体.html"
+    text: "编辑",
+    link: "/tools/编辑.html"
   },
   {
-    text: "桌面环境",
-    link: "/tools/桌面环境.html"
+    text: "格式转换",
+    link: "/tools/格式转换.html"
+  },
+  {
+    text: "构建",
+    link: "/tools/构建.html"
+  },
+  {
+    text: "容器",
+    link: "/tools/容器.html"
+  },
+  {
+    text: "设备",
+    link: "/tools/设备.html"
   },
   {
     text: "视频",
@@ -251,8 +261,32 @@ const toolsItems = [
     link: "/tools/随机字符.html"
   },
   {
+    text: "图像",
+    link: "/tools/图像.html"
+  },
+  {
+    text: "小工具",
+    link: "/tools/小工具.html"
+  },
+  {
+    text: "写作",
+    link: "/tools/写作.html"
+  },
+  {
+    text: "压缩",
+    link: "/tools/压缩.html"
+  },
+  {
     text: "音频",
     link: "/tools/音频.html"
+  },
+  {
+    text: "桌面环境",
+    link: "/tools/桌面环境.html"
+  },
+  {
+    text: "字体",
+    link: "/tools/字体.html"
   }
 ];
 
@@ -273,6 +307,14 @@ module.exports = {
     lastUpdated: "更新于",
     nav: [
       {
+        text: "数学",
+        items: mathItems
+      },
+      {
+        text: "语言",
+        items: languagesItems
+      },
+      {
         text: "AI",
         items: aiItems
       },
@@ -282,7 +324,7 @@ module.exports = {
       },
       {
         text: "编程语言",
-        items: programmingLanguageItems
+        items: programmingLanguagesItems
       },
       {
         text: "工具",
@@ -327,6 +369,20 @@ module.exports = {
           collapsable: false
         }
       ],
+      "/languages/": [
+        {
+          title: "语言",
+          children: languagesItems.map(navItemToSidebarChild),
+          collapsable: false
+        }
+      ],
+      "/math/": [
+        {
+          title: "数学",
+          children: mathItems.map(navItemToSidebarChild),
+          collapsable: false
+        }
+      ],
       "/os/": [
         {
           title: "操作系统",
@@ -334,10 +390,10 @@ module.exports = {
           collapsable: false
         }
       ],
-      "/programming-language/": [
+      "/programming-languages/": [
         {
           title: "编程语言",
-          children: programmingLanguageItems.map(navItemToSidebarChild),
+          children: programmingLanguagesItems.map(navItemToSidebarChild),
           collapsable: false
         }
       ],
